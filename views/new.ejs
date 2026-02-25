@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<div class="page-center">
+  <div class="panel panel-lg">
+    <div class="panel-head">
+      <h2 class="panel-title title-purple">Add a Book</h2>
+      <p class="panel-subtitle">Add a new book to your notes.</p>
+    </div>
+
+    <form method="POST" action="/books" class="form">
+      <label>Title *</label>
+      <input name="title" required />
+
+      <label>Author *</label>
+      <input name="author" required />
+
+      <label>ISBN (optional, for cover + unique if provided)</label>
+      <input name="isbn" placeholder="e.g., 9780143127741" />
+
+      <label>Rating (1-5)</label>
+      <input name="rating" type="number" min="1" max="5" />
+
+      <label>Date Read</label>
+      <input name="date_read" type="date" />
+
+      <label>Notes</label>
+      <textarea name="notes" rows="6" placeholder="Key takeaways..."></textarea>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

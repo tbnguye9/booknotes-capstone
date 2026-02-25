@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<section class="detail">
+  <img
+    class="cover-lg"
+    src="<%= book.cover_url %>"
+    alt="cover"
+    onerror="
+      this.onerror = null;
+      this.src = '/no-cover.jpg';
+    "
+  />
+
+  <div>
+    <h2><%= book.title %></h2>
+    <p class="muted"><%= book.author %></p>
+
+    <p><b>ISBN:</b> <%= book.isbn ?? "-" %></p>
+    <p><b>Rating:</b> <%= book.rating ?? "-" %>/5</p>
+    <p><b>Date Read:</b> <%= book.date_read ?? "-" %></p>
+
+    <h3>Notes</h3>
+    <p class="notes"><%= book.notes ?? "No notes yet." %></p>
+
+    <div class="actions">
+      <a class="btn" href="/books/<%= book.id %>/edit">Edit</a>
+
+      <form
+        method="POST"
+        action="/books/<%= book.id %>?_method=DELETE"
+        onsubmit="return confirm('Delete this book?');"
+      >
+        <button class="danger" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

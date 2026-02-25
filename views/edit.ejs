@@ -1,0 +1,50 @@
+<%- include("partials/header") %> <% const safe = (v) => (v ?? ""); const
+dateValue = book?.date_read ? new Date(book.date_read).toISOString().slice(0,
+10) : ""; %>
+
+<div class="page-center">
+  <div class="panel panel-lg">
+    <div class="panel-head">
+      <h2 class="panel-title title-purple">Edit Book</h2>
+      <p class="panel-subtitle">Update book details and notes.</p>
+    </div>
+
+    <form method="POST" action="/books/<%= book.id %>?_method=PUT" class="form">
+      <label>Title *</label>
+      <input name="title" required value="<%= safe(book.title) %>" />
+
+      <label>Author *</label>
+      <input name="author" required value="<%= safe(book.author) %>" />
+
+      <label>ISBN (optional, unique if provided)</label>
+      <input
+        name="isbn"
+        value="<%= safe(book.isbn) %>"
+        placeholder="e.g., 9780143127741"
+      />
+
+      <label>Rating (1-5)</label>
+      <input
+        name="rating"
+        type="number"
+        min="1"
+        max="5"
+        value="<%= safe(book.rating) %>"
+      />
+
+      <label>Date Read</label>
+      <input name="date_read" type="date" value="<%= dateValue %>" />
+
+      <label>Notes</label>
+      <textarea name="notes" rows="6" placeholder="Key takeaways...">
+<%= safe(book.notes) %></textarea
+      >
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

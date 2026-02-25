@@ -1,0 +1,438 @@
+/* =============================
+   Book Notes - Purple SaaS Theme
+============================= */
+
+:root {
+  --bg: #f6f3ff;
+  --card: #ffffff;
+  --text: #1f1635;
+  --muted: #6b647a;
+  --border: rgba(31, 22, 53, 0.1);
+
+  --primary: #7c3aed; /* purple */
+  --primary-600: #6d28d9;
+  --primary-700: #5b21b6;
+
+  --shadow: 0 12px 30px rgba(17, 24, 39, 0.1);
+  --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.08);
+
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial;
+  color: var(--text);
+  background:
+    radial-gradient(
+      1200px 500px at 20% -10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 450px at 90% 0%,
+      rgba(109, 40, 217, 0.14),
+      transparent 55%
+    ),
+    var(--bg);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+/* ===== Layout container (center) ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px 20px;
+}
+
+/* ===== TOPBAR ===== */
+
+.topbar {
+  width: 100%;
+  background: #d7d2e5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.topbar-inner {
+  width: 100%; /* QUAN TRỌNG */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== BRAND ===== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  /* margin: 0; */
+}
+
+.brand-icon-img {
+  height: 32px;
+  width: auto;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+/* ===== ACTIONS ===== */
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+}
+
+button.btn,
+button.btn-primary {
+  cursor: pointer;
+}
+
+/* ===== Typography ===== */
+h2 {
+  margin: 16px 0 14px;
+  font-size: 22px;
+}
+
+a {
+  color: inherit;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ===== Toolbar/Search row ===== */
+.row {
+  margin-top: 18px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar .search {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
+label.muted {
+  font-weight: 600;
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+select {
+  width: auto;
+  min-width: 180px;
+  background: white;
+}
+
+/* ===== Grid cards ===== */
+.grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cover-link {
+  display: block;
+}
+
+.cover-frame {
+  aspect-ratio: 3 / 4; /* tỉ lệ sách kiểu OpenLibrary */
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(109, 40, 217, 0.1),
+    rgba(109, 40, 217, 0.03)
+  );
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* quan trọng: không méo, không crop */
+  padding: 14px; /* tạo “viền trắng” giống OpenLibrary */
+  filter: drop-shadow(0 12px 18px rgba(17, 24, 39, 0.1));
+}
+
+.card:hover .cover-img {
+  transform: scale(1.01);
+  transition: transform 160ms ease;
+}
+
+.cover {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+}
+
+.card-body {
+  padding: 14px 14px 16px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.card h3 a {
+  text-decoration: none;
+}
+
+.card h3 a:hover {
+  color: var(--primary-700);
+}
+
+/* ===== Forms (new/edit) ===== */
+.form {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
+  max-width: 720px;
+}
+
+.form label {
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.form button {
+  width: fit-content;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  color: white;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.form button:hover {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  transform: translateY(-1px);
+}
+
+/* ===== Detail page ===== */
+.detail {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
+}
+
+.cover-lg {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #eee;
+}
+
+.notes {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button.danger {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+button.danger:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== Footer ===== */
+.footer {
+  width: min(1100px, calc(100% - 32px));
+  margin: 18px auto 40px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ===== Center for add new & edit pages ===== */
+
+.page-title {
+  margin: 18px 0 14px;
+}
+
+.page-center {
+  display: flex;
+  justify-content: center;
+}
+
+.panel {
+  width: 100%;
+  background: var(--card, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+.panel-lg {
+  max-width: 900px;
+  padding: 22px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 720px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+  .cover-lg {
+    height: 320px;
+  }
+  .topbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.panel-head {
+  margin-bottom: 14px;
+}
+.panel-title {
+  margin: 0 0 6px;
+}
+.panel-subtitle {
+  margin: 0;
+  opacity: 0.75;
+}
+.title-purple {
+  color: var(--primary);
+}
+.form-actions {
+  margin-top: 14px;
+}

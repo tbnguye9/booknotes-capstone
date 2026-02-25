@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+
+<section class="row">
+  <form method="GET" action="/" class="toolbar">
+    <input
+      class="search"
+      name="q"
+      value="<%= q %>"
+      placeholder="Search by title or author..."
+    />
+
+    <label class="muted">Sort:</label>
+    <select name="sort">
+      <option value="recent" <%= sort==="recent" ? "selected" : "" %>>Recency</option>
+      <option value="rating_desc" <%= sort==="rating_desc" ? "selected" : "" %>>Rating (High → Low)</option>
+      <option value="rating_asc" <%= sort==="rating_asc" ? "selected" : "" %>>Rating (Low → High)</option>
+      <option value="title" <%= sort==="title" ? "selected" : "" %>>Title (A → Z)</option>
+    </select>
+
+    <!-- <button type="submit">Apply</button> -->
+    <button class="btn btn-primary" type="submit">Apply</button>
+
+    <% if (q) { %>
+      <a class="btn" href="/?sort=<%= sort %>">Clear</a>
+    <% } %>
+  </form>
+</section>
+
+<section class="grid">
+  <% if (books.length === 0) { %>
+    <p>No books found. Try another keyword or add a new book.</p>
+  <% } %>
+
+  <% books.forEach(book => { %>
+    <article class="card">
+  <a class="cover-link" href="/books/<%= book.id %>">
+    <div class="cover-frame">
+      <img
+        class="cover-img"
+        src="<%= book.cover_url %>"
+        alt="Book cover"
+        loading="lazy"
+        onerror="this.onerror=null;this.src='/no-cover.png';"
+      />
+    </div>
+  </a>
+
+  <div class="card-body">
+    <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
+    <p class="muted"><%= book.author %></p>
+    <p>Rating: <%= book.rating ?? "-" %>/5</p>
+    <p class="muted">Read: <%= book.date_read ?? "-" %></p>
+  </div>
+</article>
+  <% }) %>
+</section>
+
+<%- include("partials/footer") %>
